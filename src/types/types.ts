@@ -9,5 +9,7 @@ export interface User{
 
 export interface AppState{
     users:User[],
-    errors:Record<string,string>
+    errors:Record<string,string>,
+    editingId: string | null,
+    formData: Omit<User, 'id'>
 }

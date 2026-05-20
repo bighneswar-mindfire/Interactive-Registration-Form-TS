@@ -1,4 +1,4 @@
-import type { AppState } from '../types';
+import type { AppState } from '../../types/types';
 
 export const Table = (state: AppState): string => {
 

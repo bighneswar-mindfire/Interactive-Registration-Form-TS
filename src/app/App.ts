@@ -1,7 +1,7 @@
 
-import type { AppState } from '../types';
-import { Form } from './Form';
-import { Table } from './Table';
+import type { AppState } from '../types/types';
+import { Form } from '../components/Form/Form';
+import { Table } from '../components/Table/Table';
 
 export const App = (state: AppState): string => {
     return `
