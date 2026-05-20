@@ -1,1 +1,10 @@
 
+.validation {
+    color: #e45151; 
+    font-size: 13px;
+    display: block;  
+}
+
+.hide {
+    display: none; 
+}

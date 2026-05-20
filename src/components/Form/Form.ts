@@ -9,7 +9,7 @@ export const Form = (state: AppState): string => {
 
     return `
         <div>
-            <h2>${state.editingId ? "Update User" : "Registration Form"}</h2>
+            <h2>Registration Form</h2>
             <form id="regForm">
                 <label>Full name:</label>
                 <input type="text" name="name" value="${name}"><br>

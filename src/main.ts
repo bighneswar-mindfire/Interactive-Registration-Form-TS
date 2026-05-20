@@ -47,6 +47,27 @@ root.addEventListener('submit', (e) => {
     }
 });
 
+root.addEventListener('click', (e) => {
+    const target = e.target as HTMLElement;
+    
+    // ID of the row clicked
+    const rowId = target.closest('tr')?.getAttribute('data-id');
+    if (!rowId) return;
+
+    if (target.classList.contains('edit-btn')) {
+        const userToEdit = state.users.find(u => u.id === rowId);
+        if (userToEdit) {
+            state.editingId = rowId;
+            state.formData = { ...userToEdit }; 
+            state.errors = {};
+            renderApp(); 
+        }
+    }
+
+    
+});
+
+
 
 renderApp();
 
