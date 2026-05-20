@@ -63,7 +63,13 @@ root.addEventListener('click', (e) => {
             renderApp(); 
         }
     }
-
+    
+    if (target.classList.contains('delete-btn')) {
+        if (confirm("Delete this record?")) {
+            state.users = state.users.filter(u => u.id !== rowId);
+            renderApp();
+        }
+    }
     
 });
 
