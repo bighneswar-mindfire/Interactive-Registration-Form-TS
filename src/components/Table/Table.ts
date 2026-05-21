@@ -21,16 +21,20 @@ export const Table = (state: AppState): string => {
 
 
     return `
+    <div class="table-container">
         <h2>Registered User Details</h2>
-        <table id="details">
-            <tr id="table-heading">
-                <th>Name</th>
-                <th>Email</th>
-                <th>Phone no.</th>
-                <th>Gender</th>
-                <th>Action</th>
-            </tr>
-            ${rows}
-        </table>
+        <div class="table-wrapper">
+            <table id="details">
+                <tr id="table-heading">
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone no.</th>
+                    <th>Gender</th>
+                    <th>Action</th>
+                </tr>
+                ${rows}
+            </table>
+        </div>
+    </div>
     `;
 };
