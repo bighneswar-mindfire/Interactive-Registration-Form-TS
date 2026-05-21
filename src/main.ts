@@ -35,11 +35,11 @@ root.addEventListener('submit', (e) => {
             } else {
                 state.users.push(createRecord(data));
             }
-            
+
             state.formData = { name: '', mail: '', phone: '', gender: '' };
-            state.errors = {}; 
+            state.errors = {};
         } else {
-    
+
             state.errors = errors;
         }
 
@@ -49,7 +49,7 @@ root.addEventListener('submit', (e) => {
 
 root.addEventListener('click', (e) => {
     const target = e.target as HTMLElement;
-    
+
     // ID of the row clicked
     const rowId = target.closest('tr')?.getAttribute('data-id');
     if (!rowId) return;
@@ -58,19 +58,26 @@ root.addEventListener('click', (e) => {
         const userToEdit = state.users.find(u => u.id === rowId);
         if (userToEdit) {
             state.editingId = rowId;
-            state.formData = { ...userToEdit }; 
+            state.formData = { ...userToEdit };
             state.errors = {};
-            renderApp(); 
+            renderApp();
         }
     }
-    
+
     if (target.classList.contains('delete-btn')) {
+
         if (confirm("Delete this record?")) {
+
+            if (rowId === state.editingId) {
+                state.editingId = null;
+                state.formData = { name: '', mail: '', phone: '', gender: '' };
+                state.errors = {};
+            }
             state.users = state.users.filter(u => u.id !== rowId);
             renderApp();
         }
     }
-    
+
 });
 
 

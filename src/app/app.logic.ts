@@ -17,14 +17,14 @@ export const validateUser = (data: Partial<User>) => {
     if (!data.mail || data.mail.trim() === "") {
         errors.mail = "Email address is empty";
     } else if (!emailRegex.test(data.mail)) {
-        errors.mail = "Invalid email format (e.g. abc@mail.com)";
+        errors.mail = "Invalid email format";
     }
 
     // Phone Validation
     if (!data.phone || data.phone.trim() === "") {
         errors.phone = "Phone number is empty";
     } else if (!phoneRegex.test(data.phone)) {
-        errors.phone = "Phone number must be exactly 10 digits";
+        errors.phone = "Phone number must be 10 digits";
     }
 
     // Gender Validation
