@@ -2,18 +2,23 @@ import type { AppState } from '../../types/types';
 
 export const Table = (state: AppState): string => {
 
-    const rows = state.users.map(user => `
-        <tr data-id="${user.id}">
-            <td>${user.name}</td>
-            <td>${user.mail}</td>
-            <td>${user.phone}</td>
-            <td>${user.gender}</td>
-            <td>
-                <button class="edit-btn">Edit</button>
-                <button class="delete-btn">Delete</button>
-            </td>
-        </tr>
-    `).join('');
+    const rows = state.users.map(user => {
+        const isEditing = user.id === state.editingId ? "editing-row" : "";
+
+        return `
+            <tr data-id="${user.id}" class="${isEditing}">
+                <td>${user.name}</td>
+                <td>${user.mail}</td>
+                <td>${user.phone}</td>
+                <td>${user.gender}</td>
+                <td>
+                    <button class="edit-btn">Edit</button>
+                    <button class="delete-btn">Delete</button>
+                </td>
+            </tr>
+        `;
+    }).join('');
+
 
     return `
         <h2>Registered User Details</h2>

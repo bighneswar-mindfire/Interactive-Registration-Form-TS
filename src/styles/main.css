@@ -8,3 +8,9 @@
 .hide {
     display: none; 
 }
+
+.editing-row {
+    background-color: #fff3cd !important; 
+    border: 2px solid #ffeeba;
+    font-weight: bold;
+}
