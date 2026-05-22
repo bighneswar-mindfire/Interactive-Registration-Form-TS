@@ -1,11 +1,11 @@
 import type { AppState } from '../../types/types';
 
 export const Table = (state: AppState): string => {
+  const rows = state.users
+    .map((user) => {
+      const isEditing = user.id === state.editingId ? 'editing-row' : '';
 
-    const rows = state.users.map(user => {
-        const isEditing = user.id === state.editingId ? "editing-row" : "";
-
-        return `
+      return `
             <tr data-id="${user.id}" class="${isEditing}">
                 <td>${user.name}</td>
                 <td>${user.mail}</td>
@@ -17,10 +17,10 @@ export const Table = (state: AppState): string => {
                 </td>
             </tr>
         `;
-    }).join('');
+    })
+    .join('');
 
-
-    return `
+  return `
     <div class="table-container">
         <h2>Registered User Details</h2>
         <div class="table-wrapper">

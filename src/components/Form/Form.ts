@@ -1,13 +1,12 @@
-import { type AppState } from "../../types/types";
+import { type AppState } from '../../types/types';
 
 export const Form = (state: AppState): string => {
-    const getErrClass = (field: string) => state.errors[field] ? "" : "hide";
-    const getErrMsg = (field: string) => state.errors[field] || "";
+  const getErrClass = (field: string) => (state.errors[field] ? '' : 'hide');
+  const getErrMsg = (field: string) => state.errors[field] || '';
 
-    
-    const { name, mail, phone, gender } = state.formData;
+  const { name, mail, phone, gender } = state.formData;
 
-    return `
+  return `
         <div>
             <h2>Registration Form</h2>
             <form id="regForm">
@@ -34,7 +33,7 @@ export const Form = (state: AppState): string => {
                 <label class="validation ${getErrClass('gender')}">${getErrMsg('gender')}</label>
                 <br><br>
                 
-                <input type="submit" value="${state.editingId ? "Update" : "Submit"}">
+                <input type="submit" value="${state.editingId ? 'Update' : 'Submit'}">
             </form>
         </div>
     `;
