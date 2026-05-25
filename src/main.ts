@@ -1,4 +1,5 @@
 import './styles/main.css';
+import { storage } from './app/app.storage';
 import { state } from './app/app.state';
 import { App } from './app/App';
 import { validateUser, createRecord } from './app/app.logic';
@@ -42,6 +43,8 @@ root.addEventListener('submit', (e) => {
 
       state.formData = { name: '', mail: '', phone: '', gender: '' };
       state.errors = {};
+      // saving in local
+      storage.saveUsers(state.users);
     } else {
       state.errors = errors;
     }
@@ -75,9 +78,17 @@ root.addEventListener('click', (e) => {
         state.errors = {};
       }
       state.users = state.users.filter((u) => u.id !== rowId);
+      // saving in local
+      storage.saveUsers(state.users);
       renderApp();
     }
   }
 });
 
-renderApp();
+const bootstrap = () => {
+  // loading data into state from local for first time
+  state.users = storage.loadUsers();
+  renderApp();
+};
+
+bootstrap();
