@@ -79,6 +79,13 @@ h2 {
   margin: 10px 0;
 }
 
+.radio-group {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  margin-top: 5px;
+}
+
 #regForm input[type='radio'] {
   margin-right: 5px;
   cursor: pointer;
@@ -104,7 +111,7 @@ h2 {
   color: var(--error-color);
   font-size: 12px;
   display: block;
-  min-height: 18px;
+  min-height: 22px;
   margin-bottom: 10px;
 }
 

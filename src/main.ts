@@ -6,7 +6,10 @@ import { validateUser, createRecord } from './app/app.logic';
 const root = document.getElementById('app')!;
 
 const renderApp = () => {
-  root.innerHTML = App(state);
+  while (root.firstChild) {
+    root.removeChild(root.firstChild);
+  }
+  root.appendChild(App(state));
 };
 
 root.addEventListener('submit', (e) => {
